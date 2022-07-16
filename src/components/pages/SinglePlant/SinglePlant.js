@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import "./SinglePlant.scss";
-import { useGlobalContext } from "../../Context";
+import { AppContext } from "../../../context/Context";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import Error from "../Error/Error";
@@ -9,7 +9,8 @@ const SinglePlant = () => {
   // console.log(id);
   // console.log(parseInt(id));
   const [product, setProduct] = useState([]);
-  const { data, addItemToCart, setShowModal, setModalID } = useGlobalContext();
+  const { data, addItemToCart, setShowModal, setModalID } =
+    useContext(AppContext);
 
   useEffect(() => {
     const newProduct = data.find((item) => item.id === Number(id));
@@ -30,7 +31,7 @@ const SinglePlant = () => {
         {/* image */}
         <div className="col-12 col-sm-4 d-flex justify-content-center justify-content-sm-end p-0">
           <img
-            src={`../${product.img}`}
+            src={product.image}
             alt={product.title}
             className="rounded p-1 m-0"
           />
@@ -41,24 +42,21 @@ const SinglePlant = () => {
           className="col-12 col-sm-7 mx-auto p-2 px-4"
         >
           <h5>
-            <span className="fw-bold">Scientific Name: </span>
-            {product.sciName}
+            <span className="fw-bold">Description: </span>
+            {product.description}
           </h5>
           <h6>
-            <span className="fw-bold">Family: </span>
-            {product.family}
+            <span className="fw-bold">Category: </span>
+            {product.category}
           </h6>
           <h6>
-            <span className="fw-bold">Species: </span>
-            {product.species}
+            <span className="fw-bold">Rating: </span>
+            {`${product.rating.rate} from ${product.rating.count} vote(s)`}
           </h6>
           <h6 className="fw-bold">
             <span>Price: </span>$ {product.price}
           </h6>
-          <h6 className="mb-4">
-            <span className="fw-bold">Summary:</span>
-            {product.info}
-          </h6>
+
           <div id="btn-container" className="d-flex">
             <Link to="/">
               <button className="btn fw-bolder text-capitalize" id="btn-home">

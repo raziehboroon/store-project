@@ -1,10 +1,12 @@
-import React, { useContext, useState, useEffect } from "react";
-import { storeProducts } from "./data";
+import React, { useState, useEffect } from "react";
+// import { storeProducts } from "../data";
+import { getData } from "../services/api";
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [data, setData] = useState(storeProducts);
+  // const [data, setData] = useState(storeProducts);
+  const [data, setData] = useState([]);
 
   const [subtotal, setSubtotal] = useState(0);
   const [tax, setTax] = useState(0);
@@ -14,6 +16,15 @@ const AppProvider = ({ children }) => {
   const [modalID, setModalID] = useState(1);
 
   const [itemInBasket, setItemInBasket] = useState(0);
+
+  useEffect(() => {
+    const getProduct = async () => {
+      const products = await getData("products");
+      console.log(products);
+      setData(products);
+    };
+    getProduct();
+  }, []);
 
   useEffect(() => {
     const subtotal = parseFloat(
@@ -115,8 +126,5 @@ const AppProvider = ({ children }) => {
   );
 };
 
-export const useGlobalContext = () => {
-  return useContext(AppContext);
-};
-
-export { AppContext, AppProvider };
+export { AppContext };
+export default AppProvider;

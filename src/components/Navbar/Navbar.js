@@ -2,14 +2,14 @@
 
 /* <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
 
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.scss";
 import { Link } from "react-router-dom";
-import logo from "../../logos/cactusBlack.svg";
-import { useGlobalContext } from "../../Context";
+import logo from "../../assets/icons/cactusBlack.svg";
+import { StoreContext } from "../../context/StoreContextProvider";
 
 const Navbar = () => {
-  const { itemInBasket } = useGlobalContext();
+  const { state } = useContext(StoreContext);
   return (
     <nav className="navbar navbar-dark navbar-expand-lg p-0 m-0">
       <div className="container align-items-center">
@@ -19,7 +19,7 @@ const Navbar = () => {
         <ul className="navbar-nav ml-5 flex-grow-1">
           <li className="nav-item fw-bold nav-title">
             <Link to="/" className="nav-link text-white fs-4 fw-bold">
-              Plants
+              Store
             </Link>
           </li>
         </ul>
@@ -34,7 +34,7 @@ const Navbar = () => {
               id="basket-index"
               className="d-flex align-items-center justify-content-center p-0"
             >
-              {itemInBasket}
+              {state.itemCount}
             </span>
           </button>
         </Link>

@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./InCartItem.scss";
-import { useGlobalContext } from "../../Context";
+import { StoreContext } from "../../context/StoreContextProvider";
+//function
+import { eachItemTotal } from "../../helper/functions";
 
-const InCartItem = ({ id, title, img, price, count, total }) => {
-  const { removeFromCart, increaseCount, decreaseCount } = useGlobalContext();
+const InCartItem = (props) => {
+  const { title, image, price, quantity } = props;
+  const { dispatch } = useContext(StoreContext);
   return (
     <div id="items-container" className="row m-2 align-items-center">
       <div className="col-12 col-sm-2 text-center my-2 my-sm-1">
-        <img src={img} alt={title} className="mx-auto w-50" />
+        <img src={image} alt={title} className="mx-auto w-50" />
       </div>
       <h6 className="col-12 col-sm-2 text-center text-capitalize">{title}</h6>
       <h6 className="col-12 col-sm-2 text-capitalize text-center">$ {price}</h6>
@@ -17,16 +20,16 @@ const InCartItem = ({ id, title, img, price, count, total }) => {
         <button
           className="btn px-2 py-0 text-success"
           onClick={() => {
-            decreaseCount(id);
+            dispatch({ type: "DECREASE", payload: props });
           }}
         >
           <i className="fas fa-minus-square mb-2 mt-0 mb-sm-0 fa-2x"></i>
         </button>
-        <h5 className="text-capitalize text-center fw-bold mx-2">{count}</h5>
+        <h5 className="text-capitalize text-center fw-bold mx-2">{quantity}</h5>
         <button
           className="btn px-2 py-0 text-success"
           onClick={() => {
-            increaseCount(id);
+            dispatch({ type: "INCREASE", payload: props });
           }}
         >
           <i className="fas fa-plus-square mb-2 mt-0 mb-sm-0 fa-2x"></i>
@@ -36,7 +39,7 @@ const InCartItem = ({ id, title, img, price, count, total }) => {
       <div className="col-12 col-sm-2 d-flex justify-content-center mb-2">
         <button
           onClick={() => {
-            removeFromCart(id);
+            dispatch({ type: "REMOVE_ITEM", payload: props });
           }}
           className="btn text-danger px-2 py-0"
         >
@@ -45,7 +48,7 @@ const InCartItem = ({ id, title, img, price, count, total }) => {
       </div>
 
       <h6 className="col-12 col-sm-2 text-capitalize text-center fw-bold">
-        item total: ${total}
+        item total: ${eachItemTotal(price, quantity)}
       </h6>
     </div>
   );

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Modal.scss";
 import { Link } from "react-router-dom";
-import { useGlobalContext } from "../../Context";
+import { AppContext } from "../../../context/Context";
 const Modal = () => {
-  const { modalID, showModal, setShowModal, data } = useGlobalContext();
+  const { modalID, showModal, setShowModal, data } = useContext(AppContext);
   const [product, setProduct] = useState([]);
 
   useEffect(() => {

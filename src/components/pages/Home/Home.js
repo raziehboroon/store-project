@@ -1,13 +1,11 @@
 import React from "react";
 import "./Home.scss";
-import PlantList from "../../components/PlantList/PlantList";
-import CopyRightInfo from "../../components/CopyRightInfo/CopyRightInfo";
+import PlantList from "../../PlantList/PlantList";
 
 const Home = () => {
   return (
     <main className="container">
       <PlantList />
-      <CopyRightInfo />
     </main>
   );
 };

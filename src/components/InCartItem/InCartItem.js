@@ -1,31 +1,41 @@
-import React, { useContext } from "react";
 import "./InCartItem.scss";
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+// Context(s)
 import { StoreContext } from "../../context/StoreContextProvider";
-//function
+//Function(s)
 import { eachItemTotal } from "../../helper/functions";
 
 const InCartItem = (props) => {
-  const { title, image, price, quantity } = props;
+  const { id, title, image, price, quantity } = props;
   const { dispatch } = useContext(StoreContext);
   return (
     <div id="items-container" className="row m-2 align-items-center">
       <div className="col-12 col-sm-2 text-center my-2 my-sm-1">
         <img src={image} alt={title} className="mx-auto w-50" />
       </div>
-      <h6 className="col-12 col-sm-2 text-center text-capitalize">{title}</h6>
+      <Link
+        to={`/product/${id}`}
+        className="col-12 col-sm-2 text-center text-capitalize"
+      >
+        {title}
+      </Link>
       <h6 className="col-12 col-sm-2 text-capitalize text-center">$ {price}</h6>
 
-      {/* increase or decrease count */}
+      {/* decrease count */}
       <div className="col-12 col-sm-2 d-flex justify-content-center align-items-center my-2">
         <button
           className="btn px-2 py-0 text-success"
+          id={quantity === 1 && "disabledBtn"}
           onClick={() => {
             dispatch({ type: "DECREASE", payload: props });
           }}
         >
           <i className="fas fa-minus-square mb-2 mt-0 mb-sm-0 fa-2x"></i>
         </button>
+        {/* Quantity */}
         <h5 className="text-capitalize text-center fw-bold mx-2">{quantity}</h5>
+        {/* Increase Count */}
         <button
           className="btn px-2 py-0 text-success"
           onClick={() => {
@@ -35,8 +45,8 @@ const InCartItem = (props) => {
           <i className="fas fa-plus-square mb-2 mt-0 mb-sm-0 fa-2x"></i>
         </button>
       </div>
-      {/* remove item */}
       <div className="col-12 col-sm-2 d-flex justify-content-center mb-2">
+        {/* Remove Item */}
         <button
           onClick={() => {
             dispatch({ type: "REMOVE_ITEM", payload: props });

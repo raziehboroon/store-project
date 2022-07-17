@@ -4,6 +4,10 @@
   flex-direction: column;
 }
 
+#disabledBtn {
+  opacity: 0.5;
+}
+
 @media screen and (min-width: 600px) {
   #items-container {
     flex-direction: row;

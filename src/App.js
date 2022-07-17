@@ -4,12 +4,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // components
 import Home from "../src/components/pages/Home/Home";
 import Error from "../src/components/pages/Error/Error";
-import SinglePlant from "../src/components/pages/SinglePlant/SinglePlant";
-import Plant from "../src/components/Plant/Plant";
+import ProductDetails from "../src/components/pages/ProductDetails/ProductDetails";
+import Product from "../src/components/Product/Product";
 import Navbar from "../src/components/Navbar/Navbar";
 import Cart from "../src/components/pages/Cart/Cart";
 import Footer from "../src/components/Footer/Footer";
 import Modal from "../src/components/pages/Modal/Modal";
+import PayPal from "./components/PayPal/PayPal";
 //context
 import AppProvider from "./context/Context";
 import StoreContextProvider from "./context/StoreContextProvider";
@@ -21,14 +22,17 @@ function App() {
         <Router>
           <Navbar />
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route exact path="/cart">
+            <Route path="/cart">
               <Cart />
             </Route>
-            <Route exact path="/plant/:id" children={<Plant />}>
-              <SinglePlant />
+            <Route path="/product/:id" children={<Product />}>
+              <ProductDetails />
+            </Route>
+            <Route path="/checkout">
+              <PayPal />
+            </Route>
+            <Route exact path="/">
+              <Home />
             </Route>
             <Route path="*">
               <Error />

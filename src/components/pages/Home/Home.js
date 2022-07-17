@@ -1,11 +1,12 @@
-import React from "react";
 import "./Home.scss";
-import PlantList from "../../PlantList/PlantList";
+import React from "react";
+// Component(s)
+import ProductList from "../../ProductList/ProductList";
 
 const Home = () => {
   return (
     <main className="container">
-      <PlantList />
+      <ProductList />
     </main>
   );
 };

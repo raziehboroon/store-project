@@ -1,22 +1,22 @@
-import "./Plant.scss";
+import "./Product.scss";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AppContext } from "../../context/Context";
+import PropTypes from "prop-types";
+// Context(s)
 import { StoreContext } from "../../context/StoreContextProvider";
+// Component(s)
 import basketIcon from "../../assets/icons/shop.svg";
-// import PropTypes from "prop-types";
+// Function(s)
 import { shorten, isInCart } from "../../helper/functions";
 
-const Plant = (props) => {
-  // const { addItemToCart, setShowModal, setModalID } = useContext(AppContext);
+const Product = (props) => {
   const { id, title, image, price } = props;
-  const { setShowModal, setModalID } = useContext(AppContext);
   const { state, dispatch } = useContext(StoreContext);
 
   return (
     <article id="card" className="col-5 col-sm-3 m-2 m-sm-3 p-0">
       <div id="image-container">
-        <Link to={`/plant/${id}`}>
+        <Link to={`/product/${id}`}>
           <img
             src={image}
             alt={title}
@@ -27,8 +27,6 @@ const Plant = (props) => {
           onClick={() => {
             // addItemToCart(id);
             dispatch({ type: "ADD_ITEM", payload: props });
-            setShowModal(true);
-            setModalID(props.id);
           }}
           id="btn-basket"
           className="p-2 border-0 fw-bold"
@@ -55,18 +53,15 @@ const Plant = (props) => {
   );
 };
 
-export default Plant;
+export default Product;
 
-// Plant.propTypes = {
-//   id: PropTypes.number.isRequired,
-//   title: PropTypes.string.isRequired,
-//   img: PropTypes.string.isRequired,
-//   price: PropTypes.number.isRequired,
-//   inCart: PropTypes.bool.isRequired,
-// sciName: PropTypes.string.isRequired,
-// family: PropTypes.string.isRequired,
-// species: PropTypes.string.isRequired,
-// info: PropTypes.string.isRequired,
-// count: PropTypes.number.isRequired,
-// total: PropTypes.number.isRequired,
-// };
+Product.propTypes = {
+  props: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    rating: PropTypes.object.isRequired,
+  }),
+};

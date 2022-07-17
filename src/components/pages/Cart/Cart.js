@@ -1,17 +1,15 @@
-import React, { useContext } from "react";
 import "./Cart.scss";
+import React, { useContext } from "react";
+// Context(s)
+import { StoreContext } from "../../../context/StoreContextProvider";
+// Component(s)
 import CartSummary from "../../CartSummary/CartSummary";
 import InCartItem from "../../InCartItem/InCartItem";
 import EmptyCart from "../../EmptyCart/EmptyCart";
-import { StoreContext } from "../../../context/StoreContextProvider";
 
 const Cart = () => {
   const { state } = useContext(StoreContext);
 
-  // in case of empty cart
-  // const inCartItem = data.filter((item) => console.log(item.inCart));
-  // const inCartItem = data.filter((item) => item.inCart);
-  // console.log(inCartItem);
   return (
     <>
       {state.selectedItems.length === 0 ? (

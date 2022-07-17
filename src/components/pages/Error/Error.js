@@ -1,6 +1,7 @@
-import React from "react";
 import "./Error.scss";
+import React from "react";
 import { Link } from "react-router-dom";
+// Icon(s)
 import errorLogo from "../../../assets/icons/logo404-cropped.svg";
 
 const Error = () => {

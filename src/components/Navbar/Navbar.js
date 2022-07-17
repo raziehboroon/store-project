@@ -1,28 +1,36 @@
 //www.flaticon.com/free-icon/cactus_4842199
-
 /* <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
 
-import React, { useContext } from "react";
 import "./Navbar.scss";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/icons/cactusBlack.svg";
+// Icon(s)
+import shopLogo from "../../assets/icons/shopLogo.jpg";
+// Context(s)
 import { StoreContext } from "../../context/StoreContextProvider";
 
 const Navbar = () => {
   const { state } = useContext(StoreContext);
   return (
-    <nav className="navbar navbar-dark navbar-expand-lg p-0 m-0">
-      <div className="container align-items-center">
+    <nav className="navbar">
+      <div className="container">
         <Link to="/">
-          <img src={logo} alt="cactus logo" className="logo navbar-brand" />
+          <span className="nav-link">
+            <img
+              src={shopLogo}
+              alt="cactus logo"
+              className="logo navbar-brand"
+            />
+            Store
+          </span>
         </Link>
-        <ul className="navbar-nav ml-5 flex-grow-1">
-          <li className="nav-item fw-bold nav-title">
-            <Link to="/" className="nav-link text-white fs-4 fw-bold">
-              Store
-            </Link>
-          </li>
-        </ul>
+        {/* <ul className="navbar-nav ml-5 flex-grow-1"> */}
+        {/* <li className="nav-item fw-bold nav-title"> */}
+        {/* <Link to="/" 
+          Store
+        </Link> */}
+        {/* </li> */}
+        {/* </ul> */}
         <Link to="/Cart" className="ml-auto">
           <button
             id="btn-nav"

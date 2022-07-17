@@ -1,9 +1,13 @@
 //paypal feature works with vpn
-import React, { useContext, useEffect, useRef } from "react";
 import "./PayPal.scss";
-import { AppContext } from "../../context/Context";
+import React, { useContext, useEffect, useRef } from "react";
+// Context(s)
+// import { AppContext } from "../../context/Context";
+import { StoreContext } from "../../context/StoreContextProvider";
+
 const PayPal = () => {
-  const { total, clearCart } = useContext(AppContext);
+  // const { total, clearCart } = useContext(AppContext);
+  const { state, dispatch } = useContext(StoreContext);
   const paypal = useRef();
   useEffect(() => {
     window.paypal
@@ -12,7 +16,7 @@ const PayPal = () => {
           return actions.order.create({
             intent: "CAPTURE",
             purchase_units: [
-              { amount: { currency_code: "USD", value: total } },
+              { amount: { currency_code: "USD", value: state.total } },
             ],
           });
         },
@@ -20,7 +24,8 @@ const PayPal = () => {
           const order = await actions.order.capture();
           console.log("successfull purchase.");
           console.log(order);
-          clearCart();
+          // clearCart();
+          dispatch({ type: "CHECKOUT" });
           alert("Thank you for your purchase, see you soon.");
         },
         onError: (err) => {
@@ -28,7 +33,7 @@ const PayPal = () => {
         },
       })
       .render(paypal.current);
-  }, [clearCart, total]);
+  }, [dispatch, state]);
   // when dependecy array is removed, add one paypal button each time +/_ is pressed
   return (
     <div>

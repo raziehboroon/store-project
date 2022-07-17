@@ -3,10 +3,22 @@
 .navbar {
   background-color: $clr-green-nav;
   height: 4rem;
+  color: $clr-white;
+  padding: 0;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+Link {
+  text-decoration: none !important;
 }
 
 .navbar .logo {
-  width: 2rem;
+  width: 3rem;
+  border-radius: 50%;
 }
 
 .navbar .container {
@@ -19,6 +31,7 @@ nav li:hover .nav-link {
 
 .nav-title {
   letter-spacing: $spacing;
+  text-decoration: none !important;
 }
 
 #btn-nav {

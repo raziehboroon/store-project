@@ -1,56 +1,65 @@
-import React, { useState, useEffect, useContext } from "react";
 import "./Modal.scss";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import { AppContext } from "../../../context/Context";
+// Context(s)
+import { StoreContext } from "../../../context/StoreContextProvider";
+// function(s)
+import { getSingleProduct } from "../../../helper/functions";
+
 const Modal = () => {
-  const { modalID, showModal, setShowModal, data } = useContext(AppContext);
-  const [product, setProduct] = useState([]);
+  const { state, dispatch } = useContext(StoreContext);
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
-    const getProductData = (modalID) => {
-      return data.find((item) => item.id === Number(modalID));
-    };
-    setProduct(getProductData(modalID));
-  }, [modalID, data]);
+    setProduct(getSingleProduct(state.selectedItems, state.modalID));
+  }, [state]);
 
-  if (!showModal) {
-    return null;
-  }
+  // if (!state.showModal) {
+  //   return null;
+  // }
   return (
-    <div className="modal-container">
-      <div className="row justify-content-center my-auto">
-        <div
-          id="modal"
-          className="col-5 text-center text-capitalize p-3 rounded"
-        >
-          <h5 className="fw-bold">item added to the cart</h5>
-          <img
-            src={`../${product.img}`}
-            alt={product.title}
-            className="img-fluid mb-2"
-          />
-          <h5 className="fw-bold">{product.title}</h5>
-          <Link to="/">
-            <button
-              onClick={() => setShowModal(false)}
-              className="btn fw-bolder text-capitalize mb-2"
-              id="btn-home"
+    <>
+      {product && (
+        <div className="modal-container">
+          <div className="row justify-content-center my-auto">
+            <div
+              id="modal"
+              className="col-5 text-center text-capitalize p-3 rounded"
             >
-              back to store
-            </button>
-          </Link>
-          <Link to="/Cart">
-            <button
-              onClick={() => setShowModal(false)}
-              className="btn fw-bolder text-capitalize mb-2"
-              id="btn-cart"
-            >
-              to cart
-            </button>
-          </Link>
+              <h5 className="fw-bold">item added to the cart</h5>
+              <img
+                src={product.image}
+                alt={product.title}
+                className="img-fluid mb-2"
+              />
+              <h5 className="fw-bold">{product.title}</h5>
+              <Link to="/">
+                <button
+                  onClick={() =>
+                    dispatch({ type: "CLOSE_MODAL", payload: state })
+                  }
+                  className="btn fw-bolder text-capitalize mb-2"
+                  id="btn-home"
+                >
+                  back to store
+                </button>
+              </Link>
+              <Link to="/Cart">
+                <button
+                  onClick={() =>
+                    dispatch({ type: "CLOSE_MODAL", payload: state })
+                  }
+                  className="btn fw-bolder text-capitalize mb-2"
+                  id="btn-cart"
+                >
+                  to cart
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

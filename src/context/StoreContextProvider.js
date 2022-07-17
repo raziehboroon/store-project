@@ -7,6 +7,8 @@ const initialValue = {
   subtotal: 0,
   tax: 0,
   total: 0,
+  showModal: false,
+  modalID: 0,
   checkout: false,
 };
 
@@ -15,7 +17,6 @@ const getSummary = (selectedItems) => {
     (acc, item) => (acc += item.quantity),
     0
   );
-
   const subtotal = selectedItems
     .reduce((acc, item) => (acc += item.price * item.quantity), 0)
     .toFixed(2);
@@ -23,6 +24,7 @@ const getSummary = (selectedItems) => {
   const total = (Number(subtotal) + Number(tax)).toFixed(2);
   return { itemCount, subtotal, tax, total };
 };
+
 const storeReducer = (state, action) => {
   console.log(state);
 
@@ -34,6 +36,8 @@ const storeReducer = (state, action) => {
       return {
         ...state,
         ...getSummary(state.selectedItems),
+        showModal: true,
+        modalID: action.payload.id,
         checkout: false,
       };
     case "REMOVE_ITEM":
@@ -44,7 +48,7 @@ const storeReducer = (state, action) => {
       return {
         ...state,
         selectedItems: [...newSelectedItems],
-        ...getSummary(state.selectedItems),
+        ...getSummary(newSelectedItems),
       };
     case "INCREASE":
       const indexI = state.selectedItems.findIndex(
@@ -56,7 +60,8 @@ const storeReducer = (state, action) => {
       const indexD = state.selectedItems.findIndex(
         (item) => item.id === action.payload.id
       );
-      state.selectedItems[indexD].quantity--;
+      state.selectedItems[indexD].quantity > 1 &&
+        state.selectedItems[indexD].quantity--;
       return { ...state, ...getSummary(state.selectedItems) };
     case "CHECKOUT":
       return {
@@ -76,6 +81,8 @@ const storeReducer = (state, action) => {
         total: 0,
         checkout: false,
       };
+    case "CLOSE_MODAL":
+      return { ...state, showModal: false, modalID: 0 };
     default:
       return state;
   }

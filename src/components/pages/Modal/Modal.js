@@ -21,41 +21,32 @@ const Modal = () => {
     <>
       {product && (
         <div className="modal-container">
-          <div className="row justify-content-center my-auto">
-            <div
-              id="modal"
-              className="col-5 text-center text-capitalize p-3 rounded"
-            >
-              <h5 className="fw-bold">item added to the cart</h5>
-              <img
-                src={product.image}
-                alt={product.title}
-                className="img-fluid mb-2"
-              />
-              <h5 className="fw-bold">{product.title}</h5>
-              <Link to="/">
-                <button
-                  onClick={() =>
-                    dispatch({ type: "CLOSE_MODAL", payload: state })
-                  }
-                  className="btn fw-bolder text-capitalize mb-2"
-                  id="btn-home"
-                >
-                  back to store
-                </button>
-              </Link>
-              <Link to="/Cart">
-                <button
-                  onClick={() =>
-                    dispatch({ type: "CLOSE_MODAL", payload: state })
-                  }
-                  className="btn fw-bolder text-capitalize mb-2"
-                  id="btn-cart"
-                >
-                  to cart
-                </button>
-              </Link>
+          <div className="modal">
+            <h3>item added to the cart</h3>
+            <div className="modal-image-container">
+              <img src={product.image} alt={product.title} />
             </div>
+            <h3>{product.title}</h3>
+            <Link to="/">
+              <button
+                className="btn-dark"
+                onClick={() =>
+                  dispatch({ type: "CLOSE_MODAL", payload: state })
+                }
+              >
+                back to store
+              </button>
+            </Link>
+            <Link to="/Cart">
+              <button
+                className="btn-light"
+                onClick={() =>
+                  dispatch({ type: "CLOSE_MODAL", payload: state })
+                }
+              >
+                to cart
+              </button>
+            </Link>
           </div>
         </div>
       )}

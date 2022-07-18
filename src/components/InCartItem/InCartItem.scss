@@ -1,18 +1,57 @@
 @import "../../App.scss";
 
-#inCart__item-container {
-  flex-direction: column;
+.inCart-items-container {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  a {
+    text-decoration: none;
+  }
+  h3 {
+    text-align: center;
+  }
 }
 
+// .inCart-items-container > * {
+//   margin: 0.5rem;
+// }
+
+.inCart-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  img {
+    max-width: 50%;
+  }
+}
+
+.inCart-quantityBtn {
+  text-align: center;
+  button {
+    color: $clr-green;
+    font-size: 1.5rem;
+  }
+  h3 {
+    text-align: center;
+  }
+}
+
+.inCart-removeBtn {
+  color: $clr-secondary;
+}
 #disabledBtn {
   opacity: 0.5;
 }
 
-@media screen and (min-width: 600px) {
-  #items-container {
+@media screen and (min-width: 576px) {
+  .inCart-items-container {
     flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
-  #items-container img {
-    width: 50%;
+  .inCart-image-container {
+    width: 20%;
   }
 }

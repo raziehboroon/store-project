@@ -10,56 +10,46 @@ const InCartItem = (props) => {
   const { id, title, image, price, quantity } = props;
   const { dispatch } = useContext(StoreContext);
   return (
-    <div id="items-container" className="row m-2 align-items-center">
-      <div className="col-12 col-sm-2 text-center my-2 my-sm-1">
-        <img src={image} alt={title} className="mx-auto w-50" />
+    <div className="inCart-items-container">
+      <div className="inCart-image-container">
+        <img src={image} alt={title} />
       </div>
-      <Link
-        to={`/product/${id}`}
-        className="col-12 col-sm-2 text-center text-capitalize"
-      >
-        {title}
-      </Link>
-      <h6 className="col-12 col-sm-2 text-capitalize text-center">$ {price}</h6>
 
-      {/* decrease count */}
-      <div className="col-12 col-sm-2 d-flex justify-content-center align-items-center my-2">
+      <Link to={`/product/${id}`}>
+        <h3 className="inCart-title">{title}</h3>
+      </Link>
+
+      <h3>$ {price}</h3>
+
+      <div className="inCart-quantityBtn">
         <button
-          className="btn px-2 py-0 text-success"
           id={quantity === 1 && "disabledBtn"}
           onClick={() => {
             dispatch({ type: "DECREASE", payload: props });
           }}
         >
-          <i className="fas fa-minus-square mb-2 mt-0 mb-sm-0 fa-2x"></i>
+          <i className="fas fa-minus-square"></i>
         </button>
-        {/* Quantity */}
-        <h5 className="text-capitalize text-center fw-bold mx-2">{quantity}</h5>
-        {/* Increase Count */}
+        <h3>{quantity}</h3>
         <button
-          className="btn px-2 py-0 text-success"
           onClick={() => {
             dispatch({ type: "INCREASE", payload: props });
           }}
         >
-          <i className="fas fa-plus-square mb-2 mt-0 mb-sm-0 fa-2x"></i>
-        </button>
-      </div>
-      <div className="col-12 col-sm-2 d-flex justify-content-center mb-2">
-        {/* Remove Item */}
-        <button
-          onClick={() => {
-            dispatch({ type: "REMOVE_ITEM", payload: props });
-          }}
-          className="btn text-danger px-2 py-0"
-        >
-          <i className="fas fa-trash-alt fa-2x mb-2 mb-sm-0 mt-0"></i>
+          <i className="fas fa-plus-square"></i>
         </button>
       </div>
 
-      <h6 className="col-12 col-sm-2 text-capitalize text-center fw-bold">
-        item total: ${eachItemTotal(price, quantity)}
-      </h6>
+      <button
+        className="inCart-removeBtn"
+        onClick={() => {
+          dispatch({ type: "REMOVE_ITEM", payload: props });
+        }}
+      >
+        <i className="fas fa-trash-alt fa-2x"></i>
+      </button>
+
+      <h3>item total: ${eachItemTotal(price, quantity)}</h3>
     </div>
   );
 };

@@ -1,18 +1,55 @@
 @import "../../../App.scss";
 
-#single-plant img {
-  max-width: 300px;
+.details-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
 }
-#single-plant-info {
+.details-image {
+  width: 100%;
+}
+.details-image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.details-info {
+  min-height: 100%;
   letter-spacing: $spacing;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-#single-plant #btn-container {
+.text-container span {
+  color: $clr-secondary;
+}
+
+.text-container h2 {
+  margin-bottom: 0.5rem;
+}
+
+.details-info .btn-container {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
+  margin-top: 1rem;
 }
 
-@media screen and (min-width: 600px) {
-  .single-plant .btn-container {
+@media screen and (min-width: 575px) {
+  .details-container {
+    flex-direction: row;
+  }
+  .details-image {
+    max-width: 30%;
+    max-height: 70vh;
+    margin-right: 2rem;
+  }
+  .text-container h2 {
+    margin-bottom: 1rem;
+  }
+  .details-container .btn-container {
     justify-content: left;
   }
 }

@@ -30,60 +30,49 @@ const ProductDetails = () => {
   return (
     <>
       {product && (
-        <div id="single-plant" className="container section">
-          <h2 className="plant-title text-center pt-3 mb-4">{product.title}</h2>
-          <div className="row flex-column flex-sm-row mb-3">
+        <div className="section productDetails">
+          <h2 className="page-title">{product.title}</h2>
+          <article className="details-container">
             {/* image */}
-            <div className="col-12 col-sm-4 d-flex justify-content-center justify-content-sm-end p-0">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="rounded p-1 m-0"
-              />
+            <div className="details-image">
+              <img src={product.image} alt={product.title} />
             </div>
-            {/* info */}
-            <div
-              id="single-plant-info"
-              className="col-12 col-sm-7 mx-auto p-2 px-4"
-            >
-              <h5>
-                <span className="fw-bold">Description: </span>
-                {product.description}
-              </h5>
-              <h6>
-                <span className="fw-bold">Category: </span>
-                {product.category}
-              </h6>
-              <h6>
-                <span className="fw-bold">Rating: </span>
-                {/* {`${product.rating.rate} from ${product.rating.count} vote(s)`} */}
-              </h6>
-              <h6 className="fw-bold">
-                <span>Price: </span>$ {product.price}
-              </h6>
 
-              <div id="btn-container" className="d-flex">
+            {/* info */}
+            <div className="details-info">
+              <div className="text-container">
+                <h2>
+                  <span>Description: </span>
+                  {product.description}
+                </h2>
+                <h2>
+                  <span>Category: </span>
+                  {product.category}
+                </h2>
+                <h2>
+                  <span>Rating: </span>
+                  {/* {`${product.rating.rate} from ${product.rating.count} vote(s)`} */}
+                </h2>
+                <h2>
+                  <span>Price: </span>$ {product.price}
+                </h2>
+              </div>
+              <div className="btn-container">
                 <Link to="/">
-                  <button
-                    className="btn fw-bolder text-capitalize"
-                    id="btn-home"
-                  >
-                    back to Store
-                  </button>
+                  <button className="btn-dark">back to Store</button>
                 </Link>
 
                 <button
                   onClick={() => {
                     dispatch({ type: "ADD_ITEM", payload: product });
                   }}
-                  className="btn fw-bolder text-capitalize"
-                  id="btn-cart"
+                  className="btn-light"
                 >
                   {product.inCart ? "in Cart" : "add to cart"}
                 </button>
               </div>
             </div>
-          </div>
+          </article>
         </div>
       )}
     </>

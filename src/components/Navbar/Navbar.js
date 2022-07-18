@@ -12,38 +12,18 @@ import { StoreContext } from "../../context/StoreContextProvider";
 const Navbar = () => {
   const { state } = useContext(StoreContext);
   return (
-    <nav className="navbar">
+    <nav>
       <div className="container">
-        <Link to="/">
-          <span className="nav-link">
-            <img
-              src={shopLogo}
-              alt="cactus logo"
-              className="logo navbar-brand"
-            />
-            Store
-          </span>
+        <Link to="/" id="nav-title-container">
+          <img src={shopLogo} alt="store logo" />
+          <span>Store</span>
         </Link>
-        {/* <ul className="navbar-nav ml-5 flex-grow-1"> */}
-        {/* <li className="nav-item fw-bold nav-title"> */}
-        {/* <Link to="/" 
-          Store
-        </Link> */}
-        {/* </li> */}
-        {/* </ul> */}
-        <Link to="/Cart" className="ml-auto">
-          <button
-            id="btn-nav"
-            className="btn fw-bold text-capitalize p-1 border border-3 rounded text-light"
-          >
-            <i className="fas fa-shopping-cart p-1"></i>
+
+        <Link to="/Cart">
+          <button id="btn-nav">
+            <i className="fas fa-shopping-cart"></i>
             my cart
-            <span
-              id="basket-index"
-              className="d-flex align-items-center justify-content-center p-0"
-            >
-              {state.itemCount}
-            </span>
+            <span id="basket-index">{state.itemCount}</span>
           </button>
         </Link>
       </div>

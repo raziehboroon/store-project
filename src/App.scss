@@ -12,16 +12,13 @@ $clr-primary-3: hsl(43, 72%, 37%);
 $clr-primary-4: hsl(42, 63%, 48%);
 /* primary/main color */
 /* lighter shades of primary color */
+$clr-primary-5: hsl(42, 78%, 60%);
 $clr-primary-6: hsl(43, 89%, 70%);
 $clr-primary-7: hsl(43, 90%, 76%);
 $clr-primary-8: hsl(45, 86%, 81%);
 $clr-primary-9: hsl(45, 90%, 88%);
 $clr-primary-10: hsl(45, 100%, 96%);
 
-/* darkest grey - used for headings */
-$clr-grey-1: hsl(209, 61%, 16%);
-$clr-grey-3: hsl(209, 34%, 30%);
-$clr-grey-4: hsl(209, 28%, 39%);
 /* darkest grey - used for headings */
 $clr-grey-1: hsl(209, 61%, 16%);
 $clr-grey-2: hsl(211, 39%, 23%);
@@ -39,6 +36,7 @@ $ff-primary: "Oswald", sans-serif;
 $ff-secondary: "Permanent Marker", cursive;
 $transition: all 0.3s linear;
 $spacing: 0.1rem;
+$spacing-l: 0.2rem;
 $radius: 0.3rem;
 $light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 /* $dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
@@ -47,16 +45,17 @@ $max-width: 1170px;
 $clr-primary-7: hsl(43, 90%, 76%);
 
 $clr-grey-9: #999;
-$clr-green-nav: $clr-grey-1;
-// $clr-green-nav: #29b779;
+$clr-green: #29b779;
 $clr-green-subtutle: #008060;
 $clr-green-title: #1a525b;
-$clr-bej: #eff3f2;
+$clr-bej: #f6f3e9;
 $clr-white: #fff;
 $clr-black: #111;
-/* $clr-primary-5: hsl(42, 78%, 60%); */
-$clr-primary-5: #cc3363;
-$clr-index: #cc3363;
+$clr-primary: $clr-grey-1;
+$clr-primary-light: $clr-grey-2;
+$clr-secondary: #cc3363;
+$clr-gold: hsl(43, 90%, 76%);
+$clr-gold-d: hsl(42, 63%, 48%);
 /* $clr-index: rgb(246, 91, 227); */
 
 /*
@@ -75,32 +74,101 @@ Global Styles
 }
 
 body {
+  // font-family: Arial, Helvetica, sans-serif;
   color: $clr-black;
   line-height: 1.5rem;
   font-size: 0.875rem;
   overflow-x: hidden;
   min-width: 100vw;
-  font-family: $ff-primary !important;
+  font-family: $ff-primary;
   letter-spacing: 0.03rem;
-  font-weight: bolder;
+  // font-weight: bolder;
 }
 
 .section {
   max-width: $max-width;
+  // width: 100vw;
   margin: 0 auto;
-  min-height: calc(100vh - 7rem);
-  width: 100vw;
+  min-height: calc(100vh - 8rem);
 }
 
+// ba'd hazf she, be jash page title miad hame ja
 .plant-title {
   font-family: $ff-secondary;
 }
 
+.page-title {
+  font-family: $ff-secondary;
+  text-align: center;
+  margin: 1rem;
+}
+
 .mybtn {
-  border-width: 2px !important;
+  border-width: 0.2rem !important;
   border-style: solid;
 }
 
 // .plant-list {
 //   min-height: calc(100vh - 7rem);
 // }
+
+.btn-dark {
+  background-color: $clr-primary;
+  color: $clr-white;
+  border: 2px solid $clr-primary;
+  letter-spacing: 0.1rem;
+  transition: $transition;
+  padding: 0.5rem 0.2rem;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.btn-light {
+  background-color: $clr-secondary;
+  color: $clr-white;
+  border: 2px solid $clr-secondary;
+  letter-spacing: 0.1rem;
+  transition: $transition;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  padding: 0.5rem 0.2rem;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 576px) {
+  .page-title {
+    font-size: 2rem;
+    margin: 1rem 0 2rem;
+  }
+  .btn-dark {
+    padding: 0.7rem 1rem;
+    color: $clr-primary;
+    background-color: $clr-white;
+    border-color: $clr-primary;
+    font-size: 1rem;
+  }
+  .btn-light {
+    padding: 0.7rem 1rem;
+    color: $clr-secondary;
+    background-color: $clr-white;
+    border-color: $clr-secondary;
+    font-size: 1rem;
+  }
+  .btn-dark:hover,
+  .btn-dark:active {
+    color: $clr-white;
+    background-color: $clr-primary;
+    border-color: $clr-primary;
+  }
+  .btn-light:hover,
+  .btn-light:active {
+    color: $clr-white;
+    background-color: $clr-secondary;
+    border-color: $clr-secondary;
+  }
+}

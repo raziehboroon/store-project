@@ -1,12 +1,22 @@
 @import "../../App.scss";
 
 footer {
-  background-color: $clr-green-nav;
+  background-color: $clr-primary;
   height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer h3 {
+  color: $clr-white;
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 0.7rem;
 }
 
 @media screen and (min-width: 600px) {
-  footer p {
-    letter-spacing: $spacing;
+  footer h3 {
+    letter-spacing: $spacing-l;
+    font-size: 1rem;
   }
 }

@@ -1,53 +1,72 @@
 @import "../../App.scss";
 
-.navbar {
-  background-color: $clr-green-nav;
+nav {
+  background-color: $clr-primary;
   height: 4rem;
   color: $clr-white;
-  padding: 0;
-}
-
-.navbar .container {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-Link {
-  text-decoration: none !important;
+  justify-content: center;
+  min-width: 100vw;
+
+  .container {
+    width: $max-width;
+    padding: 0.25rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  a {
+    text-decoration: none;
+    color: $clr-white;
+    &:hover {
+      color: $clr-gold;
+    }
+  }
 }
 
-.navbar .logo {
-  width: 3rem;
-  border-radius: 50%;
-}
+#nav-title-container {
+  display: flex;
+  align-items: center;
 
-.navbar .container {
-  width: $max-width;
-}
+  img {
+    width: 2rem;
+    border-radius: 50%;
+  }
 
-nav li:hover .nav-link {
-  color: $clr-primary-7 !important;
-}
-
-.nav-title {
-  letter-spacing: $spacing;
-  text-decoration: none !important;
+  span {
+    letter-spacing: $spacing-l;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+  }
 }
 
 #btn-nav {
-  outline: none !important;
+  outline: none;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 0.5rem;
+  color: $clr-white;
+  border: 0.25rem solid $clr-white;
   position: relative;
+  background-color: transparent;
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  &:hover {
+    color: $clr-primary !important;
+    border-color: $clr-white !important;
+    background-color: $clr-white;
+  }
 }
 
-#btn-nav:hover {
-  color: $clr-green-nav !important;
-  border-color: $clr-white !important;
-  background-color: $clr-white;
+#btn-nav i {
+  padding-right: 0.5rem;
 }
 
 #basket-index {
   position: absolute;
-  background-color: $clr-index;
+  background-color: $clr-secondary;
   top: -12px;
   right: -12px;
   border-radius: 50%;
@@ -55,4 +74,13 @@ nav li:hover .nav-link {
   width: 25px;
   font-size: 0.8rem;
   letter-spacing: 0.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 576px) {
+  #nav-title-container img {
+    width: 3rem;
+  }
 }

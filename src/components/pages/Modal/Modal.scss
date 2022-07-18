@@ -12,6 +12,41 @@
   justify-content: center;
 }
 
-#modal {
+.modal {
   background-color: $clr-bej;
+  width: 90vw;
+  height: 80vh;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 0.5rem;
+  border-radius: $radius;
+}
+
+.modal h3 {
+  margin-bottom: 1rem;
+}
+
+.modal-image-container {
+  // background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $clr-white;
+  height: 60%;
+}
+
+.modal-image-container img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: $radius;
+}
+
+@media screen and (min-width: 576px) {
+  .modal {
+    width: 40vw;
+    height: 70vh;
+  }
 }

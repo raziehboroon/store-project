@@ -1,18 +1,18 @@
 @import "../../App.scss";
-.emtyCart-container {
+.emptyCart-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
   h2 {
-    margin-bottom: 1rem;
+    padding-bottom: 3rem;
   }
 }
 
-@media screen and (min-width: 576px) {
-  .emtyCart-container h2 {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-  }
-}
+// @media screen and (min-width: 576px) {
+//   .emtyCart-container h2 {
+//     font-size: 5rem;
+//     padding-bottom: 5rem;
+//   }
+// }

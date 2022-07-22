@@ -6,12 +6,12 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-footer h3 {
-  color: $clr-white;
-  text-transform: capitalize;
-  text-align: center;
-  font-size: 0.7rem;
+  h3 {
+    color: $clr-white;
+    text-transform: capitalize;
+    text-align: center;
+    font-size: 0.7rem;
+  }
 }
 
 @media screen and (min-width: 600px) {

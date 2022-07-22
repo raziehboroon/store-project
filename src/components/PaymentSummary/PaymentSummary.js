@@ -1,26 +1,34 @@
 import "./PaymentSummary.scss";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 // context(s)
 import { StoreContext } from "../../context/StoreContextProvider";
 
 const PaymentSummary = () => {
   const { state, dispatch } = useContext(StoreContext);
+  // let history = useHistory();
 
   return (
     <div className="payment-container">
       <div className="payment">
         <h4>
-          <span className="page-title">subtotaln :</span> $ {state.subtotal}
+          <span className="payment-title">subtotaln :</span> $ {state.subtotal}
         </h4>
         <h4>
-          <span className="page-title">tax :</span> $ {state.tax}
+          <span className="payment-title">tax :</span> $ {state.tax}
         </h4>
         <h4>
-          <span className="page-title">total :</span> $ {state.total}
+          <span className="payment-title">total :</span> $ {state.total}
         </h4>
 
-        <button className="btn-dark">
+        <button
+          className="btn-dark"
+          // onClick={() => {
+          //   console.log(history);
+          //   history.replace("/checkout");
+          // }}
+        >
           <Link to="/checkout">checkout</Link>
         </button>
 

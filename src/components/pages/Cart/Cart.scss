@@ -4,21 +4,13 @@
   display: none;
 }
 
-.inCart-divider-line {
-  display: none;
-}
-
 @media screen and (min-width: 600px) {
   .header-container {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-  }
-
-  .inCart-divider-line {
-    display: block;
-    border-top: 0.2rem solid $clr-primary;
-    margin: 1rem;
+    border-bottom: 0.2rem solid $clr-primary;
+    padding-bottom: 1rem;
   }
 }

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // Context(s)
 import { StoreContext } from "../../context/StoreContextProvider";
 //Function(s)
-import { eachItemTotal } from "../../helper/functions";
+import { eachItemTotal, shorten } from "../../helper/functions";
 
 const InCartItem = (props) => {
   const { id, title, image, price, quantity } = props;
@@ -16,7 +16,7 @@ const InCartItem = (props) => {
       </div>
 
       <Link to={`/product/${id}`}>
-        <h3 className="inCart-title">{title}</h3>
+        <h3 className="inCart-title">{shorten(title)}</h3>
       </Link>
 
       <h3>$ {price}</h3>

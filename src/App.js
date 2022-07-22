@@ -11,6 +11,7 @@ import Cart from "../src/components/pages/Cart/Cart";
 import Footer from "../src/components/Footer/Footer";
 import Modal from "../src/components/pages/Modal/Modal";
 import PayPal from "./components/PayPal/PayPal";
+import EmptyCart from "./components/EmptyCart/EmptyCart";
 //context
 import AppProvider from "./context/Context";
 import StoreContextProvider from "./context/StoreContextProvider";
@@ -30,6 +31,9 @@ function App() {
             </Route>
             <Route path="/checkout">
               <PayPal />
+            </Route>
+            <Route path="/emptycart">
+              <EmptyCart />
             </Route>
             <Route exact path="/">
               <Home />

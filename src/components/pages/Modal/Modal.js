@@ -27,26 +27,28 @@ const Modal = () => {
               <img src={product.image} alt={product.title} />
             </div>
             <h3>{product.title}</h3>
-            <Link to="/">
-              <button
-                className="btn-dark"
-                onClick={() =>
-                  dispatch({ type: "CLOSE_MODAL", payload: state })
-                }
-              >
-                back to store
-              </button>
-            </Link>
-            <Link to="/Cart">
-              <button
-                className="btn-light"
-                onClick={() =>
-                  dispatch({ type: "CLOSE_MODAL", payload: state })
-                }
-              >
-                to cart
-              </button>
-            </Link>
+            <div>
+              <Link to="/">
+                <button
+                  className="btn-dark"
+                  onClick={() =>
+                    dispatch({ type: "CLOSE_MODAL", payload: state })
+                  }
+                >
+                  back to store
+                </button>
+              </Link>
+              <Link to="/Cart">
+                <button
+                  className="btn-light"
+                  onClick={() =>
+                    dispatch({ type: "CLOSE_MODAL", payload: state })
+                  }
+                >
+                  to cart
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       )}

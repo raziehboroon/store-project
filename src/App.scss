@@ -87,30 +87,20 @@ body {
 
 .section {
   max-width: $max-width;
-  // width: 100vw;
   margin: 0 auto;
-  min-height: calc(100vh - 8rem);
-}
-
-// ba'd hazf she, be jash page title miad hame ja
-.plant-title {
-  font-family: $ff-secondary;
+  min-height: calc(100vh - 7rem);
 }
 
 .page-title {
   font-family: $ff-secondary;
   text-align: center;
-  margin: 1rem;
+  padding: 1rem;
 }
 
 .mybtn {
   border-width: 0.2rem !important;
   border-style: solid;
 }
-
-// .plant-list {
-//   min-height: calc(100vh - 7rem);
-// }
 
 .btn-dark {
   background-color: $clr-primary;
@@ -143,7 +133,7 @@ body {
 @media screen and (min-width: 576px) {
   .page-title {
     font-size: 2rem;
-    margin: 1rem 0 2rem;
+    padding: 1rem 0 2rem;
   }
   .btn-dark {
     padding: 0.7rem 1rem;

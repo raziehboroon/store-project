@@ -6,31 +6,32 @@ import { useParams } from "react-router";
 import { AppContext } from "../../../context/Context";
 import { StoreContext } from "../../../context/StoreContextProvider";
 // Component(s)
-import Error from "../Error/Error";
+import Loading from "../../Loading/Loading";
 // Function(s)
 import { getSingleProduct } from "../../../helper/functions";
 
 const ProductDetails = () => {
   const [product, setProduct] = useState({});
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
   const { id } = useParams();
   const { dispatch } = useContext(StoreContext);
-  const { data } = useContext(AppContext);
+  const { data, loading, setLoading } = useContext(AppContext);
 
   useEffect(() => {
     const currentProduct = getSingleProduct(data, Number(id));
     setProduct(currentProduct);
-    setError(!currentProduct);
-  }, [id, data]);
+  }, [id, data, setLoading]);
 
-  if (error) {
-    return <Error />;
+  if (loading) {
+    return <Loading />;
   }
 
   return (
     <>
-      {product && (
-        <div className="section productDetails">
+      {!product ? (
+        <div className="section"></div>
+      ) : (
+        <div className="section">
           <h2 className="page-title">{product.title}</h2>
           <article className="details-container">
             {/* image */}

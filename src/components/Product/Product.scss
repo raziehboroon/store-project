@@ -3,17 +3,17 @@
   /* width: 16rem; */
   box-shadow: $light-shadow;
   transition: $transition;
-  width: 200px;
+  // width: 200px;
+  width: 180px;
   // width: 40%;
-  height: 300px;
-  margin: 1rem;
+  height: 280px;
+  margin: 0.5rem;
   padding: 1rem;
   background-color: $clr-white;
   border-radius: 0.2rem;
-}
-
-.card:hover {
-  box-shadow: $dark-shadow;
+  &:hover {
+    box-shadow: $dark-shadow;
+  }
 }
 
 .card .image-container {
@@ -21,34 +21,32 @@
   overflow: hidden;
   height: 200px;
   width: 100%;
-}
-.card img {
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  // padding: 1rem;
-  // margin: 1rem;
-  // border: 1rem solid transparent;
-}
-
-.card img:hover {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-
-.image-container #btn-basket {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  border-top-left-radius: 10px;
-  transition: 0.5s all ease-in-out;
-  background-color: $clr-secondary;
-  color: $clr-white;
-  letter-spacing: $spacing;
-  padding: 0.5rem;
-  font-weight: bold;
-  border: none;
+  img {
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    // padding: 1rem;
+    // margin: 1rem;
+    // border: 1rem solid transparent;
+    &:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+  }
+  #btn-basket {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-top-left-radius: 10px;
+    transition: 0.5s all ease-in-out;
+    background-color: $clr-secondary;
+    color: $clr-white;
+    letter-spacing: $spacing;
+    padding: 0.5rem;
+    font-weight: bold;
+    border: none;
+  }
 }
 
 .card-body {
@@ -56,30 +54,27 @@
   font-size: 1.2rem;
   letter-spacing: $spacing;
   font-weight: bolder;
+  .price {
+    text-align: right;
+    color: $clr-secondary;
+  }
 }
 
 // .card-body .title {
 // }
 
-.card-body .price {
-  text-align: right;
-  color: $clr-secondary;
-}
-
-@media screen and (min-width: 300px) {
-  .card {
-    // width: 45%;
-  }
-}
-
 @media screen and (min-width: 576px) {
-  .image-container #btn-basket {
-    right: -40px;
-    bottom: -40px;
-  }
-
-  .card:hover #btn-basket {
-    right: 0;
-    bottom: 0;
+  .card {
+    width: 250px;
+    margin: 1rem;
+    height: 300px;
+    #btn-basket {
+      right: -40px;
+      bottom: -40px;
+    }
+    &:hover #btn-basket {
+      right: 0;
+      bottom: 0;
+    }
   }
 }

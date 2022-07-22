@@ -29,7 +29,7 @@ const Cart = () => {
             <h2>remove</h2>
             <h2>total</h2>
           </div>
-          <div className="inCart-divider-line"></div>
+
           {/* cart column items data */}
           {state.selectedItems.map((item) => (
             <InCartItem key={item.id} {...item} />

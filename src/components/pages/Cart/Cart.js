@@ -18,17 +18,6 @@ const Cart = () => {
         <div className="section">
           <h2 className="page-title">your cart</h2>
           {/* cart column header */}
-          <div
-            className="header-container"
-            // className="row m-2 text-uppercase fw-bold text-center"
-          >
-            <h2>Products</h2>
-            <h2>name</h2>
-            <h2>Price</h2>
-            <h2>quantity</h2>
-            <h2>remove</h2>
-            <h2>total</h2>
-          </div>
 
           {/* cart column items data */}
           {state.selectedItems.map((item) => (

@@ -6,7 +6,7 @@
   flex-direction: column;
   // padding: 1rem;
 }
-.details-image {
+.details-image-container {
   width: 70%;
   align-self: center;
   img {
@@ -41,11 +41,19 @@
 @media screen and (min-width: 575px) {
   .details-container {
     flex-direction: row;
-    .details-image {
-      max-width: 30%;
-      max-height: 70vh;
-      margin-right: 2rem;
+    .details-image-container {
+      flex-basis: calc(50% - 1rem);
+      height: 50vh;
+      flex-grow: 1;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    .details-info {
+      flex-basis: calc(50% - 1rem);
+      flex-grow: 1;
     }
     .btn-container {
       justify-content: left;

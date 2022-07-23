@@ -1,16 +1,1 @@
 @import "../../../App.scss";
-
-.header-container {
-  display: none;
-}
-
-@media screen and (min-width: 600px) {
-  .header-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    border-bottom: 0.2rem solid $clr-primary;
-    padding-bottom: 1rem;
-  }
-}

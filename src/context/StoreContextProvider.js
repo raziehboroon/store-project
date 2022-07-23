@@ -26,7 +26,7 @@ const getSummary = (selectedItems) => {
 };
 
 const storeReducer = (state, action) => {
-  console.log(state);
+  // console.log(state);
 
   switch (action.type) {
     case "ADD_ITEM":
@@ -51,6 +51,7 @@ const storeReducer = (state, action) => {
         ...getSummary(newSelectedItems),
       };
     case "INCREASE":
+      console.log(action.payload.id);
       const indexI = state.selectedItems.findIndex(
         (item) => item.id === action.payload.id
       );

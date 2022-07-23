@@ -24,7 +24,7 @@ const Home = () => {
             ))}
           </div>
 
-          <button className="btn-top" onClick={goToTop}>
+          <button className="btn-top btn-dark" onClick={goToTop}>
             top
           </button>
         </>

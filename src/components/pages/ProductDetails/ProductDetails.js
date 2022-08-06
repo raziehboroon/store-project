@@ -32,7 +32,7 @@ const ProductDetails = () => {
         <div className="section"></div>
       ) : (
         <div className="section">
-          {console.log(product)}
+          {/* {console.log(product)} */}
           <h2 className="page-title">{product.title}</h2>
           <article className="details-container">
             {/* image */}

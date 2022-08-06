@@ -19,10 +19,11 @@ const InCartItem = (props) => {
         <h2 className="inCart-title">{shorten(title)}</h2>
       </Link>
 
-      <h2>Price: {price}$</h2>
+      <h2 className="price">Price: {price}$</h2>
 
       <div className="quantityBtn">
         <button
+          className="increase-btn"
           id={quantity === 1 && "disabledBtn"}
           onClick={() => {
             dispatch({ type: "DECREASE", payload: props });
@@ -30,8 +31,9 @@ const InCartItem = (props) => {
         >
           <i className="fas fa-minus-square"></i>
         </button>
-        <h2>{quantity}</h2>
+        <h2 className="quantity">{quantity}</h2>
         <button
+          className="increase-btn"
           onClick={() => {
             dispatch({ type: "INCREASE", payload: props });
           }}
@@ -49,7 +51,9 @@ const InCartItem = (props) => {
         <i className="fas fa-trash-alt"></i>
       </button>
 
-      <h2>item total: ${eachItemTotal(price, quantity)}</h2>
+      <h2 className="total-price">
+        item total: ${eachItemTotal(price, quantity)}
+      </h2>
     </div>
   );
 };

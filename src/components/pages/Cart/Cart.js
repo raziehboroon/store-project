@@ -11,7 +11,7 @@ const Cart = () => {
   const { state } = useContext(StoreContext);
 
   return (
-    <>
+    <main>
       {state.selectedItems.length === 0 ? (
         <EmptyCart />
       ) : (
@@ -28,7 +28,7 @@ const Cart = () => {
         </div>
       )}
       ;
-    </>
+    </main>
   );
 };
 

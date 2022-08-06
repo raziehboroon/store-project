@@ -5,7 +5,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  border: 0.1rem solid black;
 
   & > * {
     flex-grow: 1;

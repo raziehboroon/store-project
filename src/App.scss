@@ -91,6 +91,11 @@ body {
   min-height: calc(100vh - 7rem);
 }
 
+main {
+  background-color: $clr-bej;
+  min-height: calc(100vh - 7rem);
+}
+
 .page-title {
   font-family: $ff-secondary;
   text-align: center;

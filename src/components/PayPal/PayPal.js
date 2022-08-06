@@ -38,8 +38,10 @@ const PayPal = () => {
           // alert("Thank you for your purchase, see you soon.");
           console.log("Thank you for your purchase, see you soon.");
           dispatch({ type: "CHECKOUT" });
-          history.replace("/emptycart");
-          // history.push("/emptycart");
+          setTimeout(() => {
+            history.replace("/emptycart");
+          }, 2000);
+          // history.push("/emptycart"); ----
         },
         onError: (err) => {
           console.log("unsuccessful purchase" + err);

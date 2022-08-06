@@ -27,7 +27,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <>
+    <main>
       {!product ? (
         <div className="section"></div>
       ) : (
@@ -73,7 +73,7 @@ const ProductDetails = () => {
           </article>
         </div>
       )}
-    </>
+    </main>
   );
 };
 

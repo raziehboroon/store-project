@@ -11,6 +11,10 @@ footer {
     text-transform: capitalize;
     text-align: center;
     font-size: 0.7rem;
+    a {
+      color: $clr-primary-7;
+      text-decoration: none;
+    }
   }
 }
 

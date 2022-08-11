@@ -51,7 +51,7 @@ const storeReducer = (state, action) => {
         ...getSummary(newSelectedItems),
       };
     case "INCREASE":
-      console.log(action.payload.id);
+      // console.log(action.payload.id);
       const indexI = state.selectedItems.findIndex(
         (item) => item.id === action.payload.id
       );
